@@ -1,13 +1,13 @@
-import React,{Component} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-export default class Navbar extends Component{
-    render(){
+function Navbar(){
+    
 
     return(
 
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-        <Link to="/" className="navbar-brand">ExcerTracker</Link>
+        <Link to="/" className="navbar-brand">ExcerciseTracker</Link>
         <div className="collpase navbar-collapse">
         <ul className="navbar-nav mr-auto">
           <li className="navbar-item">
@@ -25,7 +25,7 @@ export default class Navbar extends Component{
 
 
     )};
-    }
+    export default Navbar;
 
 
 
