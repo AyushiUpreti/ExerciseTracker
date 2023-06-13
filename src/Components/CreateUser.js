@@ -18,6 +18,7 @@ function CreateUser(){
          username:username,     
         }
         console.log(user);
+        // console.log("user added")
 
         axios.post('http://localhost:3000/user/add',user)
         .then(res =>console.log(res.data))
