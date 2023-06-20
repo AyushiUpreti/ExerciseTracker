@@ -41,7 +41,7 @@ return(
             />
       </div>
       <div className="form-group">
-        <input type="submit" value="Create User" className="btn btn-primary mt-3" />
+        <input type="submit" value="Create User" className="btn btn-dark mt-3" />
       </div>
     </form>
 </div>

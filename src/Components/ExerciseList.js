@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+// import EditIcon from '@mui/icons-material/Edit';
+// import DeleteIcon from '@mui/icons-material/Delete';
+
 
 const Exercise = props => (
   <tr>
@@ -9,14 +12,14 @@ const Exercise = props => (
     <td>{props.exercise.duration}</td>
     <td>{props.exercise.date.substring(0, 10)}</td>
     <td>
-      <Link to={"/edit/" + props.exercise._id}>edit</Link> |{" "}
+      <Link to={"/edit/" + props.exercise._id}> <button className='btn btn-dark'>Edit</button> </Link> 
       <a
         href="#"
         onClick={() => {
           props.deleteExercise(props.exercise._id);
         }}
       >
-        delete
+         <button className='btn btn-dark'>Delete</button>
       </a>
     </td>
   </tr>
