@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-const EditExercise = (props) => {
+const EditExercise = () => {
   const [username, setUsername] = useState('');
   const [description, setDescription] = useState('');
   const [duration, setDuration] = useState(0);
@@ -13,7 +13,7 @@ const EditExercise = (props) => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get('http://localhost:5000/exercises/'+{id})
+    axios.get(`http://localhost:5000/exercises/${id}`)
       .then(response => {
         setUsername(response.data.username);
         setDescription(response.data.description);
@@ -33,7 +33,7 @@ const EditExercise = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  });
+  },[id]);
 
   const onChangeUsername = (e) => {
     setUsername(e.target.value);
@@ -44,7 +44,7 @@ const EditExercise = (props) => {
   };
 
   const onChangeDuration = (e) => {
-    setDuration(e.target.value);
+    setDuration(Number(e.target.value));
   };
 
   const onChangeDate = (date) => {
@@ -63,7 +63,7 @@ const EditExercise = (props) => {
 
     console.log(exercise);
 
-    axios.post('http://localhost:5000/exercises/update/' +{id}, exercise)
+    axios.post(`http://localhost:5000/exercises/update/${id}`, exercise)
       .then(res => console.log(res.data));
 
     window.location = '/';
